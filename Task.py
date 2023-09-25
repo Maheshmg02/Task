@@ -1,0 +1,21 @@
+import re
+first_multiple_input =input().rstrip().split()
+
+n= int(first_multiple_input[0])
+m= int(first_multiple_input[1])
+
+matrix =[]
+
+for _ in range(n):
+    matrix_item = input()
+    matrix.append(matrix_item)
+
+matrix = list(zip(*matrix))
+
+new = str()
+
+for word in matrix:
+     for char in word:
+        new += char
+
+print(re.sub(r'(?<=\w)([^\w\d]+)(?=\w)', ' ', new))
